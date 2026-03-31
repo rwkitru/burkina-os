@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BurkinaOS | Будущее уже здесь</title>
+    <style>
+        /* Основные стили */
+        :root {
+            --primary: #00ff88;
+            --bg: #0a0a0c;
+            --surface: #16161a;
+            --text: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Навигация */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(10, 10, 12, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 90%;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero секция */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a3a2a 0%, #0a0a0c 70%);
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            color: #888;
+        }
+
+        .btn {
+            margin-top: 2rem;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 20px var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Секция функций */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 5rem 10%;
+        }
+
+        .card {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+        }
+
+        .card h3 {
+            color: var(--primary);
+        }
+
+        /* Подвал */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">BURKINA_OS</div>
+        <div class="nav-links">
+            <a href="#features">Возможности</a>
+            <a href="#">Ядро</a>
+            <a href="#">Скачать</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>BurkinaOS 2.0</h1>
+        <p>Легкая, модульная и абсолютно безопасная операционная система нового поколения. Построена на микроядре для максимальной производительности.</p>
+        <a href="#download" class="btn" onclick="alert('Загрузка BurkinaOS начнется скоро!')">Попробовать сейчас</a>
+    </section>
+
+    <section id="features" class="features">
+        <div class="card">
+            <h3>Молниеносная скорость</h3>
+            <p>Оптимизированный планировщик задач позволяет системе откликаться за миллисекунды даже на слабом железе.</p>
+        </div>
+        <div class="card">
+            <h3>Безопасность Node-X</h3>
+            <p>Встроенная изоляция процессов на уровне железа защищает ваши данные от любых внешних угроз.</p>
+        </div>
+        <div class="card">
+            <h3>Кастомизация</h3>
+            <p>Меняйте интерфейс до неузнаваемости с помощью встроенного движка тем на базе CSS-Grid.</p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 BurkinaOS Project. Разработано для будущего.
+    </footer>
+
+    <script>
+        // Простая анимация появления при скролле
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if(rect.top < window.innerHeight - 100) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Начальное состояние для анимации
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease-out';
+        });
+    </script>
+</body>
+</html>
